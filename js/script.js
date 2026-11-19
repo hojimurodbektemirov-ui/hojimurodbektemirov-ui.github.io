@@ -234,7 +234,7 @@ const CMDS={
   tillar:()=>MEN.tillar.map(l=>`${esc(l.nom.padEnd(12,' '))} <span style="color:${l.rang}">${'■'.repeat(l.daraja)}</span><span class="c">${'□'.repeat(6-l.daraja)}</span> ${esc(l.kichik==='CEFR'?l.katta:l.izoh)}`).join('\n'),
   safar:()=>MEN.davlatlar.map(d=>`${esc(d.bayroq)} ${esc(d.nom.padEnd(10,' '))} <span class="c">${km(TAS,d)} km Andijondan</span>`).join('\n'),
   yosh:()=>`Tug'ilgan: <span class="n">19.11.2000</span> → <span class="s">${yosh} yosh</span>${bdayToday?'\n<span class="k">🎂 Bugun tug\'ilgan kunim!</span>':''}`,
-  aloqa:()=>MEN.aloqa.map(([k,v])=>`${k.padEnd(11,' ')}<span class="p">${esc(v)}</span>`).join('\n'),
+  aloqa:()=>MEN.aloqa.map(([k,v])=>`${esc(k.padEnd(11,' '))}<span class="p">${esc(v)}</span>`).join('\n'),
   hello:()=>`<span class="k">print</span>(<span class="s">"Salom, dunyo!"</span>)\n<span class="c">&gt;&gt;&gt;</span> Salom, dunyo!\n<span class="c">Har bir dasturchi shundan boshlagan. Siz ham boshlang!</span>`,
   party:()=>{confetti();return `<span class="k">🎉 Bayram boshlandi!</span>`},
   sudo:()=>`<span class="k">Ruxsat yo'q.</span> Bu yerda admin faqat Xojimurod 😉`,
@@ -259,7 +259,9 @@ print(`<span class="v">xojimurodbektemirov.uz</span> v${yosh}.0 <span class="c">
 run('whoami');
 
 /* ---------- aloqa ---------- */
-$('#links').innerHTML=MEN.aloqa.map(([k,v])=>`<div class="lk"><small>${esc(k)}</small><span class="v">${esc(v)}</span><button type="button" data-copy="${esc(v)}">Nusxa olish</button></div>`).join('');
+const safeUrl=u=>/^(https:\/\/|mailto:|tel:)/i.test(String(u||''))?String(u):'';
+$('#links').innerHTML=MEN.aloqa.map(([k,v,u])=>{const url=safeUrl(u),ext=url.startsWith('https');
+  return `<div class="lk"><small>${esc(k)}</small><span class="v">${esc(v).replace(/(.)@/,'$1<wbr>@')}</span><div class="lk-b"><button type="button" data-copy="${esc(v)}">Nusxa olish</button>${url?`<a class="open" href="${esc(url)}"${ext?' target="_blank" rel="noopener noreferrer"':''}>Ochish ↗</a>`:''}</div></div>`}).join('');
 const toast=m=>{const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('on'),1600)};
 document.addEventListener('click',e=>{const b=e.target.closest('[data-copy]');if(!b)return;
   const fb=()=>{const s=b.previousElementSibling,r=document.createRange();r.selectNodeContents(s);const sel=getSelection();sel.removeAllRanges();sel.addRange(r);toast('Belgilandi — Ctrl+C bosing')};

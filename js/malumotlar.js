@@ -71,10 +71,13 @@ const MEN = {
   orbita2: ["Algoritmlar", "Informatika", "Pedagogika", "Kompyuter tizimlari", "Linux", "SQL"],
 
   /* ---------- ALOQA ---------- */
-  // ["sarlavha", "manzil"]. Mehmon "Nusxa olish"ni bossa, manzil nusxalanadi
+  // ["sarlavha", "ko'rinadigan matn", "havola"]
+  // "Nusxa olish" tugmasi matnni nusxalaydi, "Ochish" tugmasi havolani ochadi.
+  // Havola faqat https:// , mailto: yoki tel: bilan boshlanishi mumkin
   aloqa: [
-    ["Telegram",  "@username"],
-    ["Email",     "salom@xojimurodbektemirov.uz"],
-    ["Instagram", "@username"]
+    ["Telegram",  "@bektemirov_x",                 "https://t.me/bektemirov_x"],
+    ["Instagram", "@bektemirov_x",                 "https://instagram.com/bektemirov_x"],
+    ["Email",     "hojimurodbektemirov@gmail.com", "mailto:hojimurodbektemirov@gmail.com"],
+    ["Telefon",   "+998 95 025 20 00",             "tel:+998950252000"]
   ]
 };
