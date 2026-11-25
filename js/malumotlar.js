@@ -10,6 +10,25 @@
    ===================================================================== */
 const MEN = {
 
+  /* ---------- BACKEND ---------- */
+  // Cloudflare Worker manzili (backend/O'RNATISH.md ga qarang). Bo'sh bo'lsa,
+  // fikrlar devori, aloqa formasi, yurakcha va ko'rishlar yashirinadi, sayt odatdagidek ishlayveradi.
+  // Misol: "https://xojimurod-api.sizningnomingiz.workers.dev"
+  API_URL: "",
+
+  /* ---------- HOZIR (nima bilan bandman) ---------- */
+  // Vaqti-vaqti bilan yangilab turing. yangilangan = oxirgi yangilangan sana (YIL-OY-KUN)
+  hozir: {
+    yangilangan: "2026-11-25",
+    // Hozirgi ish joyi (logotip: img/zis-logo.svg)
+    ish: { nom: "Zafar International School", lavozim: "IT va Dasturlash fani ustozi", yil: "2026 – hozir", logo: "img/zis-logo.svg" },
+    // Yutuq: orin = egallangan o'rin, top = nechta o'qituvchi ichida
+    mukofot: { kichik: "AI Leaders · 2026", loyiha: "Besh Million Sun'iy Intellekt Yetakchilari", turi: "milliy loyihasi", orin: 6, top: 100, sovrin: "$1000", holat: "Hozir yana qatnashyapman" },
+    loyiha: { t: "Turli xil katta loyihalar ustida ishlayapman", d: "Tafsilotlar bilan tez orada shu yerda bo'lishaman." },
+    // kitob: hozir o'qiyotgan kitob nomi (bo'sh qolsa ko'rsatilmaydi)
+    mutolaa: { id: "5343128", nik: "@bektemirov_x", kitob: "", url: "https://mutolaa.com/uz" }
+  },
+
   /* ---------- ASOSIY ---------- */
   ism: "Xojimurod",
   familiya: "Bektemirov",
@@ -24,7 +43,7 @@ const MEN = {
   lenta: ["Python", "Algoritmlar", "HTML · CSS · JS", "Kompyuter tizimlari", "Informatika", "IELTS 6.5", "Ustoz", "Andijon"],
 
   // Ikkinchi (konturli) lentadagi so'zlar
-  lenta2: ["Xojimurod Bektemirov", "IT o'qituvchisi", "6 yil tajriba", "Magistr", "Malayziya", "Singapur", "Turkiya"],
+  lenta2: ["Xojimurod Bektemirov", "AI Leaders · 6-o'rin", "Zafar International School", "IT o'qituvchisi", "6 yil tajriba", "Magistr", "Malayziya", "Singapur", "Turkiya"],
 
   /* ---------- HAYOT YO'LI (yonga suriladigan rangli kartalar) ---------- */
   // yr = kichik yozuv, em = emoji, t = sarlavha, d = izoh, big = fondagi katta xira belgi
@@ -33,8 +52,17 @@ const MEN = {
     { yr: "19.11.2000",   em: "👶", t: "git init", d: "Dunyoga keldim. Hayotimning birinchi commiti.", big: "00" },
     { yr: "bakalavriat",  em: "📘", t: "Informatika o'qitish metodikasi", d: "Qanday o'qitishni o'rgandim: pedagogika va informatika bir joyda.", big: "BA" },
     { yr: "magistratura", em: "🎓", t: "Kompyuter tizimlari va dasturiy ta'minot", d: "Tizimlar qanday ishlashini chuqur o'rgandim.", big: "MA" },
-    { yr: "6 yil",        em: "👨‍🏫", t: "IT va dasturlash o'qituvchisi", d: "Sinfda: dasturlash asoslari, algoritmlar va IT fanlari.", big: "6+" },
+    { yr: "2020 – 2026",  em: "🏫", t: "Jasorat 4-umumta'lim maktabi", d: "Oltinko'l tumani. Informatika va axborot texnologiyalari ustozi.", big: "6" },
+    { yr: "2026",         em: "🏆", t: "AI Leaders: TOP-100 ichida 6-o'rin", d: "Besh Million Sun'iy Intellekt Yetakchilari milliy loyihasi. $1000 sovrindori.", big: "#6" },
+    { yr: "2026 – hozir", em: "🌍", t: "Zafar International School", d: "IT va Dasturlash fani ustozi.", big: "ZIS" },
     { yr: "hozir",        em: "🚀", t: "xojimurodbektemirov.uz", d: "Shaxsiy saytim ishga tushdi. Davomi bor...", big: "∞" }
+  ],
+
+  /* ---------- ISH JOYLARI ("Men haqimda" kartasida va terminalda) ---------- */
+  // [yillar, ish joyi, lavozim]. Eng yangisi birinchi
+  ish: [
+    ["2026 – hozir", "Zafar International School", "IT va Dasturlash fani ustozi"],
+    ["2020 – 2026", "Oltinko'l tumani, Jasorat 4-umumta'lim maktabi", "Informatika va axborot texnologiyalari ustozi"]
   ],
 
   /* ---------- TILLAR (aylana diagrammalar) ---------- */

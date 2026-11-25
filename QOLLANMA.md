@@ -13,7 +13,9 @@ sayt/
 │   └── style.css       ← dizayn: ranglar, shriftlar, o'lchamlar, animatsiyalar
 ├── img/
 │   └── xojimurod.jpg   ← bosh qismdagi rasmingiz
-├── js/│   ├── malumotlar.js   ← ★ SIZNING MA'LUMOTLARINGIZ (eng ko'p o'zgartiriladigan fayl)
+├── js/
+│   ├── backend.js      ← fikrlar devori, aloqa formasi, yurakcha, ko'rishlar
+│   ├── malumotlar.js   ← ★ SIZNING MA'LUMOTLARINGIZ (eng ko'p o'zgartiriladigan fayl)
 │   └── script.js       ← harakatlar: globus, atlas, terminal, animatsiyalar
 └── QOLLANMA.md         ← shu qo'llanma
 ```
@@ -210,3 +212,9 @@ Sayt tekshirilgan va quyidagi himoyalar o'rnatilgan:
 2. **aHOST:** kuchli, boshqa joyda ishlatilmagan parol qo'ying. Ikki bosqichli kirish bo'lsa, uni ham yoqing.
 3. **Domen muddati:** 19.11.2027. Avtomatik to'lovni yoqing. Muddati o'tib ketgan domenni boshqa odam sotib olishi mumkin.
 4. Hech kimga parol yoki SMS kodini aytmang. aHOST yoki GitHub nomidan kelgan "shoshilinch" xatlardagi havolalarni bosmang.
+
+---
+
+## 9. Backend
+Fikrlar devori, aloqa formasi, yurakcha va ko'rishlar hisoblagichi Cloudflare Worker orqali ishlaydi. O'rnatish yo'riqnomasi `backend/O'RNATISH.md` faylida.
+`js/malumotlar.js` dagi `API_URL` bo'sh bo'lsa, bu bo'limlar yashirin qoladi. "Hozir" bo'limi esa `MEN.hozir` dan olinadi va doim ko'rinadi.

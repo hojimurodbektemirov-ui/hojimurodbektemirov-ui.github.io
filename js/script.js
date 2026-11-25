@@ -224,12 +224,15 @@ const CMDS={
   <span class="s">tillar</span>     qaysi tillarni bilaman
   <span class="s">safar</span>      borgan davlatlarim
   <span class="s">yosh</span>       nechchi yoshdaman
+  <span class="s">mukofot</span>    yutuqlarim
   <span class="s">aloqa</span>      bog'lanish
   <span class="s">hello</span>      birinchi dastur
   <span class="s">party</span>      🎉
+  <span class="s">like</span>       saytga yurakcha bosish
+  <span class="s">fikr</span>       fikrlar devoriga o'tish
   <span class="s">tozalash</span>   ekranni tozalash`,
   whoami:()=>`<span class="v">${esc(MEN.familiya)} ${esc(MEN.ism)}</span> · IT va Dasturlash fani o'qituvchisi\n<span class="c">${MEN.tajribaYil} yillik tajriba · Andijon, O'zbekiston</span>`,
-  tajriba:()=>`<span class="n">${MEN.tajribaYil} yil</span> IT va dasturlash o'qituvchisi\n<span class="k">${'█'.repeat(MEN.tajribaYil*3)}</span> <span class="c">davom etmoqda...</span>`,
+  tajriba:()=>(MEN.ish||[]).map(([y,j,l])=>`<span class="n">${esc(y)}</span>  ${esc(j)}\n             <span class="c">${esc(l)}</span>`).join('\n')+`\n<span class="n">${MEN.tajribaYil} yil</span> pedagogik tajriba\n<span class="k">${'█'.repeat(MEN.tajribaYil*3)}</span> <span class="c">davom etmoqda...</span>`,
   talim:()=>`<span class="k">magistr </span>  Kompyuter tizimlari va ularning dasturiy ta'minoti\n<span class="k">bakalavr</span>  Informatika o'qitish metodikasi`,
   tillar:()=>MEN.tillar.map(l=>`${esc(l.nom.padEnd(12,' '))} <span style="color:${l.rang}">${'■'.repeat(l.daraja)}</span><span class="c">${'□'.repeat(6-l.daraja)}</span> ${esc(l.kichik==='CEFR'?l.katta:l.izoh)}`).join('\n'),
   safar:()=>MEN.davlatlar.map(d=>`${esc(d.bayroq)} ${esc(d.nom.padEnd(10,' '))} <span class="c">${km(TAS,d)} km Andijondan</span>`).join('\n'),
@@ -237,6 +240,7 @@ const CMDS={
   aloqa:()=>MEN.aloqa.map(([k,v])=>`${esc(k.padEnd(11,' '))}<span class="p">${esc(v)}</span>`).join('\n'),
   hello:()=>`<span class="k">print</span>(<span class="s">"Salom, dunyo!"</span>)\n<span class="c">&gt;&gt;&gt;</span> Salom, dunyo!\n<span class="c">Har bir dasturchi shundan boshlagan. Siz ham boshlang!</span>`,
   party:()=>{confetti();return `<span class="k">🎉 Bayram boshlandi!</span>`},
+  mukofot:()=>{const m=(MEN.hozir||{}).mukofot;return m?`<span class="n">🏆 ${esc(m.kichik)}</span>\n${esc(m.loyiha)} ${esc(m.turi||'')}\nTOP-${esc(m.top)} o'qituvchi ichida <span class="k">${esc(m.orin)}-o'rin</span> · <span class="s">${esc(m.sovrin)}</span> sovrindori\n<span class="c">${esc(m.holat||'')}</span>`:'Ma\'lumot yo\'q'},
   sudo:()=>`<span class="k">Ruxsat yo'q.</span> Bu yerda admin faqat Xojimurod 😉`,
   ls:()=>`men.js  yol.git  tillar.json  safar.map  orbita.css  aloqa.md`
 };
@@ -253,7 +257,7 @@ cmd.addEventListener('keydown',e=>{
   if(e.key==='ArrowDown'){hi=Math.min(hist.length,hi+1);cmd.value=hist[hi]||''}
   if(e.key==='Tab'&&cmd.value){const m=Object.keys(CMDS).concat('tozalash').find(k=>k.startsWith(cmd.value.toLowerCase()));if(m){cmd.value=m;e.preventDefault()}}
 });
-$('#chips').innerHTML=['whoami','tajriba','talim','tillar','safar','yosh','hello','party'].map(c=>`<button type="button">${c}</button>`).join('');
+$('#chips').innerHTML=['whoami','tajriba','mukofot','talim','tillar','safar','hello','party'].map(c=>`<button type="button">${c}</button>`).join('');
 $('#chips').addEventListener('click',e=>{const b=e.target.closest('button');if(b)run(b.textContent)});
 print(`<span class="v">xojimurodbektemirov.uz</span> v${yosh}.0 <span class="c">· boshlash uchun</span> <span class="s">yordam</span> <span class="c">deb yozing</span>\n`);
 run('whoami');
